@@ -1,0 +1,29 @@
+name: Build GBA rom
+on:
+  push:
+    branches:
+      - acceptance
+
+jobs:
+  build-rom:
+    runs-on: ubuntu-latest
+    container: sunbr0/gba_img:7e5b2b37
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Remove Butano submodule
+        run: |
+          sudo rm -rf vendor/butano
+
+      - name: Checkout Butano repo
+        uses: actions/checkout@v2
+        with:
+          repository: GValiente/butano
+          path: vendor/butano
+
+      - name: Build GBA rom
+        run: |
+          make -j$(nproc)
