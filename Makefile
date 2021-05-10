@@ -25,7 +25,7 @@ INCLUDES    :=  include
 DATA        :=
 GRAPHICS    :=  graphics
 AUDIO       :=  audio
-ROMTITLE    :=  GBAJAM
+ROMTITLE    :=  TAPTAP
 ROMCODE     :=  SBTP
 USERFLAGS   :=
 

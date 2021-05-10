@@ -7,6 +7,7 @@
 #include "bn_vector.h"
 
 #include "gj_big_sprite_font.h"
+#include "bn_sprite_items_red_note.h"
 
 #include "bn_music_items.h"
 
@@ -21,19 +22,20 @@ int main()
     text_generator.set_center_alignment();
     bn::vector<bn::sprite_ptr, 32> text_sprites;
 
-    text_generator.generate(0, 0, "Hello, World!", text_sprites);
+    bn::sprite_ptr red_sprite = bn::sprite_items::red_note.create_sprite(0, 0);
+    red_sprite.set_scale(0.5);
+
+    // text_generator.generate(0, 0, "Hello, World!", text_sprites);
 
     bn::music_items::midiboi.play(0.0);
 
     bn::timer timer;
 
-    timer.restart();
-
-    BN_LOG("Test", "3");
-
     const int TICKS_PER_SECONDS = 262123;
 
     int seconds = 0;
+
+    timer.restart();
 
     while(true)
     {
