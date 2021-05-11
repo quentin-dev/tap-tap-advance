@@ -7,8 +7,9 @@
 #include "bn_vector.h"
 
 #include "gj_big_sprite_font.h"
-#include "bn_sprite_items_red_note.h"
+#include "note_generator.h"
 
+#include "bn_sprite_items_red_note.h"
 #include "bn_music_items.h"
 
 int main()
@@ -24,27 +25,19 @@ int main()
 
     bn::sprite_ptr red_sprite = bn::sprite_items::red_note.create_sprite(0, 0);
     red_sprite.set_scale(0.5);
+    red_sprite.set_visible(false);
 
     // text_generator.generate(0, 0, "Hello, World!", text_sprites);
 
+    tta::note_generator note_generator(120);
+
     bn::music_items::midiboi.play(0.0);
 
-    bn::timer timer;
-
-    const int TICKS_PER_SECONDS = 262123;
-
-    int seconds = 0;
-
-    timer.restart();
+    note_generator.start();
 
     while(true)
     {
         bn::core::update();
-        if (timer.elapsed_ticks() >= TICKS_PER_SECONDS)
-        {
-            seconds += 1;
-            timer.restart();
-        }
-        BN_LOG("Seconds: ", seconds);
+        note_generator.update();
     }
 }
