@@ -29,9 +29,9 @@ int main()
 
     // text_generator.generate(0, 0, "Hello, World!", text_sprites);
 
-    tta::note_generator note_generator(120);
+    tta::note_generator note_generator(70);
 
-    bn::music_items::midiboi.play(0.0);
+    bn::music_items::onetwenty.play(0.5);
 
     note_generator.start();
 
