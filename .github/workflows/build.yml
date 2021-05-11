@@ -1,4 +1,4 @@
-name: Build GBA rom
+name: Build GBA ROM
 on:
   push:
     branches:
@@ -24,6 +24,12 @@ jobs:
           repository: GValiente/butano
           path: vendor/butano
 
-      - name: Build GBA rom
+      - name: Build GBA ROM
         run: |
           make -j$(nproc)
+
+      - name: Save ROM as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: tap-tap-advance
+          path: ./tap-tap-advance.gba
