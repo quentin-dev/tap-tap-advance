@@ -39,7 +39,7 @@ namespace tta
             bn::timer timer_;
 
             bn::deque<unsigned int, 4> notes_;
-            unsigned int current_note = 0;
+            unsigned int current_note_ = 0;
 
             bn::vector<tta::Note, 16> lives_;
 

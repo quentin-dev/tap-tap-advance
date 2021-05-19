@@ -3,7 +3,8 @@
 
 namespace tta
 {
-    enum note_colors {
+    enum note_colors
+    {
         RED,
         YELLOW,
         GREEN,
