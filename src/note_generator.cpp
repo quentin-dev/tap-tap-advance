@@ -11,25 +11,25 @@ namespace tta
 {
     void note_generator::start()
     {
-        timer_.restart();
+        _timer.restart();
     }
 
     void note_generator::update()
     {
-        if (timer_.elapsed_ticks() >= (int) ticks_per_beat_)
+        if (_timer.elapsed_ticks() >= (int) _ticks_per_beat)
         {
-            current_beat_ += 1;
-            BN_LOG("BEAT N° ", current_beat_);
+            _current_beat += 1;
+            BN_LOG("BEAT N° ", _current_beat);
             
-            if (notes_.size() != 0 && current_beat_ == notes_.front())
+            if (_notes.size() != 0 && _current_beat == _notes.front())
             {
                 // BN_LOG("SPAWNED NOTE @ ", current_beat_);
-                notes_.pop_front();
+                _notes.pop_front();
 
-                lives_.push_back(Note(note_colors::RED));
+                _lives.push_back(note(note_colors::RED));
             }
             
-            timer_.restart();
+            _timer.restart();
         }
     }
 }

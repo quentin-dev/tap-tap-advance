@@ -10,30 +10,30 @@
 
 namespace tta
 {
-    class Note
+    class note
     {
         public:
 
-            Note(note_colors color)
+            note(note_colors color)
             {
 
                 switch(color)
                 {
-                    default: sprite_ = bn::sprite_items::red_note.create_sprite(0, y_);
+                    default: _sprite = bn::sprite_items::red_note.create_sprite(0, _y);
                 }
 
                 // sprite_ = bn::sprite_items::red_note.create_sprite(0, y_);
-                sprite_.value().set_scale(0.5);
+                _sprite.value().set_scale(0.5);
                 // red_sprite.set_visible(false);
 
-                y_ += 10;
+                _y += 10;
             }
                     
         private:
 
-            bn::optional<bn::sprite_ptr> sprite_ = bn::nullopt;
+            bn::optional<bn::sprite_ptr> _sprite = bn::nullopt;
 
-            static inline int y_ = -30;
+            static inline int _y = -30;
 
 
     };

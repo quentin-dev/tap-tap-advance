@@ -17,13 +17,13 @@ namespace tta
 
             note_generator(unsigned int bpm)
             {
-                beats_per_minute_ = bpm;
-                ticks_per_beat_ = constants::TICKS_PER_SECOND * (60. / beats_per_minute_);
+                _beats_per_minute = bpm;
+                _ticks_per_beat = constants::TICKS_PER_SECOND * (60. / _beats_per_minute);
 
-                notes_.push_back(1);
-                notes_.push_back(2);
-                notes_.push_back(3);
-                notes_.push_back(4);
+                _notes.push_back(1);
+                _notes.push_back(2);
+                _notes.push_back(3);
+                _notes.push_back(4);
             }
 
             ~note_generator() = default;
@@ -33,15 +33,15 @@ namespace tta
 
         private:
 
-            unsigned int beats_per_minute_;
-            unsigned int ticks_per_beat_;
-            unsigned int current_beat_ = 0;
-            bn::timer timer_;
+            unsigned int _beats_per_minute;
+            unsigned int _ticks_per_beat;
+            unsigned int _current_beat = 0;
+            bn::timer _timer;
 
-            bn::deque<unsigned int, 4> notes_;
-            unsigned int current_note_ = 0;
+            bn::deque<unsigned int, 4> _notes;
+            unsigned int _current_note = 0;
 
-            bn::vector<tta::Note, 16> lives_;
+            bn::vector<tta::note, 16> _lives;
 
     };
 
