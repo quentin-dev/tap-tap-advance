@@ -6,6 +6,7 @@
 #include "bn_optional.h"
 #include "bn_vector.h"
 
+#include "note_generator.h"
 #include "scene.h"
 #include "scene_types.h"
 
@@ -23,6 +24,9 @@ namespace tta
         private:
 
             bn::vector<bn::sprite_ptr, 32> _text_sprites;
+            tta::note_generator _note_generator;
+            bool _started;
+
     };
 }
 

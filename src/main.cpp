@@ -8,6 +8,8 @@
 #include "bn_optional.h"
 #include "bn_assert.h"
 #include "bn_vector.h"
+#include "bn_log_backend.h"
+#include "bn_config_log.h"
 
 #include "gj_big_sprite_font.h"
 #include "note_generator.h"
@@ -33,8 +35,6 @@ int main()
     // bn::sprite_ptr red_sprite = bn::sprite_items::red_note.create_sprite(0, 0);
     // red_sprite.set_scale(0.5);
     // red_sprite.set_visible(false);
-
-    // text_generator.generate(0, 0, "Hello, World!", text_sprites);
 
     // tta::note_generator note_generator(70);
 

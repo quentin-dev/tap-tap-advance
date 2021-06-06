@@ -15,7 +15,7 @@ namespace tta
     {
         public:
 
-            note_generator(unsigned int bpm)
+            note_generator(unsigned int bpm = 70)
             {
                 _beats_per_minute = bpm;
                 _ticks_per_beat = constants::TICKS_PER_SECOND * (60. / _beats_per_minute);

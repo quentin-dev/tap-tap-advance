@@ -12,6 +12,7 @@ namespace tta
     void note_generator::start()
     {
         _timer.restart();
+        BN_LOG("note_generator: started");
     }
 
     void note_generator::update()

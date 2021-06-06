@@ -29,6 +29,18 @@ ROMTITLE    :=  TAPTAP
 ROMCODE     :=  SBTP
 USERFLAGS   :=
 
+ifndef VARIANT
+	VARIANT := DEBUG
+endif
+
+ifeq ($(VARIANT),RELEASE)
+	USERFLAGS :=
+endif
+
+ifeq ($(VARIANT), DEBUG)
+	USERFLAGS := -DBN_CFG_LOG_ENABLED=true -DBN_CFG_LOG_BACKEND=BN_LOG_BACKEND_VBA
+endif
+
 #---------------------------------------------------------------------------------------------------------------------
 # Export absolute butano path:
 #---------------------------------------------------------------------------------------------------------------------
