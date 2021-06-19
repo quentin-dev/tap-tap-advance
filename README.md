@@ -1,6 +1,6 @@
 # Tap Tap Advance
 
-This is an attempt at a GBA rythm game, most likely my entry for GBA JAM 2021.
+This is an attempt at a GBA rythm game, most likely my entry for [GBA JAM 2021](https://itch.io/jam/gbajam21).
 
 ## Building the game
 
