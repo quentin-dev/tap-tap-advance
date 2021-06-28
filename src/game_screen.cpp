@@ -16,8 +16,7 @@ namespace tta
     game_screen::game_screen(bn::sprite_text_generator& text_generator) :
         _scoreboard(text_generator)
     {
-        _started = false;
-        text_generator.generate(0, 0, "Press Start", _start_text_sprites);
+        text_generator.generate(0, 0, "Press START", _start_text_sprites);
 
         _bg = bn::regular_bg_items::play_bg.create_bg(0, 0);
         _bg.value().set_visible(true);
@@ -37,7 +36,13 @@ namespace tta
 
         if (_started)
         {
-            _note_generator.update();
+            int to_add = _note_generator.update();
+
+            if (to_add != 0)
+            {
+                _score += to_add;
+                _scoreboard.update(_score);
+            }
         }
 
         return result;

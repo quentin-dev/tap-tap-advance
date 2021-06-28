@@ -29,7 +29,8 @@ namespace tta
             bn::optional<bn::regular_bg_ptr> _bg;
             bn::vector<bn::sprite_ptr, 12> _start_text_sprites;
             tta::note_generator _note_generator;
-            bool _started;
+            bool _started = false;
+            int _score = 0;
 
     };
 }

@@ -29,7 +29,12 @@ namespace tta
 
             static bool can_be_played(bn::fixed_point position)
             {
-                return position.y() >= 90;
+                return position.y() >= 45 && position.y() <= 65;
+            }
+
+            static bool is_missed(bn::fixed_point position)
+            {
+                return position.y() > 65;
             }
 
         private:

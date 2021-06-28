@@ -1,3 +1,5 @@
+#include "bn_string.h"
+
 #include "scoreboard.h"
 #include "text_utils.h"
 
@@ -7,7 +9,7 @@ namespace tta
         _text_generator(text_generator)
     {
         _text_generator.set_center_alignment();
-        _text_generator.generate(88, -70, "Score: 0", _score_text_sprites);
+        _text_generator.generate(88, -70, "SCORE 0", _score_text_sprites);
     }
 
     void scoreboard::set_visible(bool visible)
@@ -18,5 +20,10 @@ namespace tta
     void scoreboard::update(int score)
     {
         _score = score;
+
+        _score_text_sprites.clear();
+
+        bn::string<12> score_text = bn::to_string<4>(_score);
+        _text_generator.generate(82, -70, "SCORE " + score_text, _score_text_sprites);
     }
 }

@@ -34,7 +34,7 @@ namespace tta
             ~note_generator() = default;
 
             void start();
-            void update();
+            int update();
 
         private:
 

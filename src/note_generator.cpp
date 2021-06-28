@@ -17,12 +17,14 @@ namespace tta
         BN_LOG("[note_generator] Started");
     }
 
-    void note_generator::update()
+    int note_generator::update()
     {
 
         auto before_it = _lives.before_begin();
         auto it = _lives.begin();
         auto end = _lives.end();
+
+        int score = 0;
 
         while(it != end)
         {
@@ -39,6 +41,16 @@ namespace tta
                 it->set_pressed();
                 BN_LOG("NOTE WAS PRESSED");
                 it = _lives.erase_after(before_it);
+
+                score += 10;
+            }
+            else if (tta::note_utils::is_missed(pos))
+            {
+                it->set_pressed();
+                BN_LOG("NOTE WAS MISSED");
+                it = _lives.erase_after(before_it);
+
+                score -= 20;
             }
             else
             {
@@ -62,5 +74,7 @@ namespace tta
             
             _timer.restart();
         }
+
+        return score;
     }
 }
