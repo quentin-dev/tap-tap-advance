@@ -9,6 +9,7 @@
 
 #include "note_colors.h"
 #include "note_utils.h"
+#include "constants.h"
 
 namespace tta
 {
@@ -18,7 +19,7 @@ namespace tta
 
             note(tta::note_colors color) :
                 _sprite(tta::note_utils::get_sprite_from_color(color, 0, _y)),
-                _move_action(_sprite, 0, 0.5)
+                _move_action(_sprite, 0, tta::constants::NOTE_Y_SPEED)
 
             {
                 _sprite.set_scale(0.5);

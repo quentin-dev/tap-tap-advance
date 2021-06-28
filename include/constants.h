@@ -8,6 +8,7 @@ namespace tta
         public:
 
             static inline unsigned int const TICKS_PER_SECOND = 262123;
+            static inline float const NOTE_Y_SPEED = 0.5f;
 
         private:
     };

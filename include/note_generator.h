@@ -25,11 +25,10 @@ namespace tta
 
                 _ticks_per_beat = constants::TICKS_PER_SECOND * (60. / _beats_per_minute);
 
+                BN_LOG("[note_generator] Ticks / beat set to ", _ticks_per_beat);
+
                 _notes.push_back(1);
-                // _notes.push_back(2);
-                // _notes.push_back(3);
-                // _notes.push_back(4);
-                // _notes.push_back(6);
+                _notes.push_back(6);
             }
 
             ~note_generator() = default;
