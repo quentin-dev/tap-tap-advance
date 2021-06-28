@@ -10,6 +10,7 @@
 #include "note_generator.h"
 #include "scene.h"
 #include "scene_types.h"
+#include "scoreboard.h"
 
 namespace tta
 {
@@ -24,8 +25,9 @@ namespace tta
 
         private:
 
+            tta::scoreboard _scoreboard;
             bn::optional<bn::regular_bg_ptr> _bg;
-            bn::vector<bn::sprite_ptr, 32> _text_sprites;
+            bn::vector<bn::sprite_ptr, 12> _start_text_sprites;
             tta::note_generator _note_generator;
             bool _started;
 
